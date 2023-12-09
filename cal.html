@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Calculator</title>
+</head>
+<body>
+    <script type="text/javascript">
+        const myCalculator = {
+            performAddition: (a, b) => a + b,
+            performSubtraction: (a, b) => a - b,
+            performMultiplication: (a, b) => a * b,
+            performDivision: (a, b) => {
+                if (b === 0) {
+                    throw new Error("Cannot divide by zero");
+                }
+                return a / b;
+            }
+        };
+
+        try {
+            const resultAddition = myCalculator.performAddition(5, 34);
+            const resultSubtraction = myCalculator.performSubtraction(10, 31);
+            const resultMultiplication = myCalculator.performMultiplication(3, 9);
+            const resultDivision = myCalculator.performDivision(1, 2);
+
+            console.log(resultAddition, resultSubtraction, resultMultiplication, resultDivision);
+        } catch (error) {
+            console.error(error.message);
+        }
+    </script>
+</body>
+</html>
